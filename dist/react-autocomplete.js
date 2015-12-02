@@ -83,7 +83,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  displayName: 'Autocomplete',
 	
 	  propTypes: {
-	    initialValue: React.PropTypes.any,
+	    value: React.PropTypes.any,
 	    onChange: React.PropTypes.func,
 	    onSelect: React.PropTypes.func,
 	    shouldItemRender: React.PropTypes.func,
@@ -124,7 +124,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // TODO: don't cheat, let it flow to the bottom
 	  getInitialState: function getInitialState() {
 	    return {
-	      value: this.props.initialValue || '',
+	      value: this.props.value || '',
 	      isOpen: false,
 	      highlightedIndex: null
 	    };
@@ -136,8 +136,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this._performAutoCompleteOnKeyUp = false;
 	  },
 	
-	  componentWillReceiveProps: function componentWillReceiveProps() {
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 	    this._performAutoCompleteOnUpdate = true;
+	    if (nextProps.value !== this.state.value) {
+	      this.setState({
+	        value: nextProps.value
+	      });
+	    }
 	  },
 	
 	  componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
