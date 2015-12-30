@@ -150,7 +150,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    if (this.state.isOpen && this._performAutoCompleteOnUpdate) {
 	      this._performAutoCompleteOnUpdate = false;
-	      this.maybeAutoCompleteText();
+	      // this.maybeAutoCompleteText()
 	    }
 	
 	    this.maybeScrollItemIntoView();
@@ -187,7 +187,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  handleKeyUp: function handleKeyUp() {
 	    if (this._performAutoCompleteOnKeyUp) {
 	      this._performAutoCompleteOnKeyUp = false;
-	      this.maybeAutoCompleteText();
+	      // this.maybeAutoCompleteText()
 	    }
 	  },
 	
